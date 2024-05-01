@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/reset.css">
+    <!-- <link rel="stylesheet" href="./styles/reset.css"> -->
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Document</title>
 </head>
@@ -38,19 +38,27 @@
     <footer id="pieDePagina">
         <h2> Este es mi Perfil Manuel Ramos </h2>
     </footer>
-    <script src="/index.js"></script>
+    <script src="./scripts/index.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const activitiesDisplay = document.getElementById("activitiesDisplay");
+            function addActivity() {
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const imgURL = document.getElementById("imgURL").value;
+
+            const newActivity = document.createElement("div");
+            newActivity.innerHTML = `<h3>${title}</h3><p>${description}</p><img src="${imgURL}" alt="${title}">`;
+            document.getElementById("activitiesDisplay").appendChild(newActivity);
+        }
 
             function guardarActividad() {
                 const title = document.getElementById("title").value;
                 const description = document.getElementById("description").value;
                 const imgURL = document.getElementById("imgURL").value;
 
-                const newActivity = document.createElement("div");
-                newActivity.innerHTML = `<h3>${title}</h3><p>${description}</p><img src="${imgURL}" alt="${title}">`;
-                activitiesDisplay.appendChild(newActivity);
+                addActivity(title, description, imgURL);
+                displayActivities();
             }
 
             document.getElementById("guardarActividad").addEventListener("click", guardarActividad);
