@@ -38,16 +38,23 @@
     <footer id="pieDePagina">
         <h2> Este es mi Perfil Manuel Ramos </h2>
     </footer>
-    <script src="./scripts/index.js"></script>
+    <script src="/index.js"></script>
     <script>
-        function guardarActividad() {
-            const title = document.getElementById("title").value;
-            const description = document.getElementById("description").value;
-            const imgURL = document.getElementById("imgURL").value;
-            addActivity(title, description, imgURL); // Llama a la función addActivity definida en index.js
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const activitiesDisplay = document.getElementById("activitiesDisplay");
 
-        document.getElementById("guardarActividad").addEventListener("click", guardarActividad);
+            function guardarActividad() {
+                const title = document.getElementById("title").value;
+                const description = document.getElementById("description").value;
+                const imgURL = document.getElementById("imgURL").value;
+
+                const newActivity = document.createElement("div");
+                newActivity.innerHTML = `<h3>${title}</h3><p>${description}</p><img src="${imgURL}" alt="${title}">`;
+                activitiesDisplay.appendChild(newActivity);
+            }
+
+            document.getElementById("guardarActividad").addEventListener("click", guardarActividad);
+        });
     </script>
 </body>
 </html>
