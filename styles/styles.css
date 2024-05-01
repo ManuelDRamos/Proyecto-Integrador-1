@@ -1,0 +1,78 @@
+body{
+    font-style:normal;
+    margin: 0;
+    background-color: black;
+    color: white;
+    
+}
+header{
+    text-align: center;
+    padding: 20px 0;
+}
+#header .presentacion{
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+#head h1{
+    margin: 10px 0;
+
+}
+#header img{
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 25px #0000ff;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+main {
+    width: 80%;
+    margin: 0 auto;
+}
+#main {
+    text-align: center;
+
+}
+.image img{
+    width: 150px;
+    height: 150px;
+    border-radius: 20%;
+    box-shadow: 0 0 15px 5px #0000ff;
+
+}
+.activitis {
+    max-width: 600px;
+    text-align: left;
+    background-color: darkgrey;
+
+}
+.activitis button{
+    margin-left: 50px;
+
+}
+.activitis h2 {
+    text-align: left;
+    margin-bottom: 7px;
+}
+.large, .medium, .small {
+    border-radius: 10px;
+    padding: 10px;
+    width: calc(100% - 50px);
+    margin-bottom: 20px;
+}
+button {
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: rgb(29, 29, 243);
+}
+#pieDePagina {
+    align-items: center;
+    margin-top: 20px;   
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+}
+

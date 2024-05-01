@@ -3,38 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/reset.css"> 
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Document</title>
 </head>
 <body>
-    <header id ="header"> 
-    <h1> Mi Presentación </h1>
-    <div class ="presentacion"> 
-        <img src="/image/foto.jpeg" alt="fotoprofile">
-        <p class="profile"> 
-            Soy Manuel, un desarrollador de software con experiencia en HTML, CSS y JavaScript. He trabajado en proyectos web donde he creado interfaces atractivas y funcionales. Busco seguir creciendo y contribuir al éxito de proyectos innovadores.
-        </p>
-    </div>
+    <header id="header">
+        <h1> Mi Presentación </h1>
+        <div class="presentacion">
+            <img src="/image/foto.jpeg" alt="fotoprofile">
+            <p class="profile">
+                Soy Manuel, un desarrollador de software con experiencia en HTML, CSS y JavaScript.
+            </p>
+        </div>
     </header>
-    <main> 
+    <main>
         <div id="cuerpo">
             <h2> Mis tecnologias favoritas </h2>
-            <div class="image"> 
-             <img src="/image/html.png">
-             <img src="/image/css.png">
-             <img src="/image/javascript.png">    
+            <div class="image">
+                <img src="/image/html.png">
+                <img src="/image/css.png">
+                <img src="/image/javascript.png">
             </div>
         </div>
-        <div class="activitss"> 
-         <h2> Agregar Actividades </h2>
-         <input type="text" id="name" class="large" placeholder="nombre de la actividad">
-         <input type="text" id="description" class="medium" placeholder="descripcion de la actividad">
-         <input type="text" id="link" class="small" placeholder="link de la imagen">  
-         <button> Guardar Actividad </button> 
+        <div class="activitss">
+            <h2> Agregar Actividades </h2>
+            <input type="text" id="title" class="large" placeholder="nombre de la actividad">
+            <input type="text" id="description" class="medium" placeholder="descripcion de la actividad">
+            <input type="text" id="imgURL" class="small" placeholder="link de la imagen">
+            <button id="guardarActividad"> Guardar Actividad </button>
         </div>
+        <div id="activitiesDisplay"></div> <!-- Contenedor para mostrar actividades -->
     </main>
     <footer id="pieDePagina">
-      <h2> Este es mi Perfil Manuel Ramos </h2>  
+        <h2> Este es mi Perfil Manuel Ramos </h2>
     </footer>
+    <script src="./scripts/index.js"></script>
+    <script>
+        function guardarActividad() {
+            const title = document.getElementById("title").value;
+            const description = document.getElementById("description").value;
+            const imgURL = document.getElementById("imgURL").value;
+            addActivity(title, description, imgURL); // Llama a la función addActivity definida en index.js
+        }
+
+        document.getElementById("guardarActividad").addEventListener("click", guardarActividad);
+    </script>
 </body>
 </html>
