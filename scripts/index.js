@@ -14,12 +14,16 @@ class Repository {
 
     getAllActivities = () => this.activities;
 
+    
+    
     createActivity = (id, title, description, imgURL) => {
         const newActivity = new Activity(id, title, description, imgURL);
         this.activities.push(newActivity);
         return newActivity;
     };
 }
+
+
 
 const repository = new Repository();
 

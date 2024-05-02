@@ -41,6 +41,7 @@ main {
     height: 150px;
     border-radius: 20%;
     box-shadow: 0 0 15px 5px #0000ff;
+    align-content: center;
 
 }
 .activitis {
@@ -62,6 +63,8 @@ main {
     padding: 10px;
     width: calc(100% - 50px);
     margin-bottom: 20px;
+    align-items: center;
+    
 }
 button {
     padding: 10px 20px;
