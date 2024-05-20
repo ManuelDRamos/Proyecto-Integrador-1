@@ -113,7 +113,7 @@ button::after {
     left: 3%;
     width: 95%;
     height: 40%;
-    background-color: #212121;
+    background-color: transparent ;
     transition: 0.5s;
     transform-origin: center;
 }
@@ -125,8 +125,9 @@ button::before {
     left: 3%;
     width: 95%;
     height: 40%;
-    background-color: #212121;
+    background-color: transparent;
     transition: 0.5s;
+    
 }
     button:hover::before, button:hover::after {
     transform: scale(0)
@@ -135,26 +136,55 @@ button::before {
     button:hover {
     box-shadow: inset 0px 0px 25px #1479EA;
 }
-#activitiesDisplay{
-    margin: 20px auto; 
-    width: 300px; 
+#activitiesDisplay {
+    margin: 10px auto; 
+    width: 100%;
     padding: 10px; 
-    border: 6px solid black; 
+    border: transparent ; 
     border-radius: 10px; 
     text-align: center; 
-    box-shadow: 0 0 15px 5px #0000ff;
+    box-shadow: transparent;
     display: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 #activitiesDisplay img {
-    width: 100px; 
-    height: 100px; 
+    width: 120px; 
+    height: 120px; 
     border-radius: 10px; 
-    margin-bottom: 10px;
-    
-    
-    
+    flex: 0 0 auto;
+    margin: 10px;
+    text-align: center; 
+    border: 2px solid black ;
+    box-shadow:0 0 25px #6d6dac ;
+    transition: transform 0.3s ease-in-out;
 }
+
+#activitiesDisplay img:hover{
+    transform: scale(1.1);
+}
+
+.delete-activity {
+    width: 75px;
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    border: 3px ridge #149CEA;
+    border-radius: 5px;
+    cursor:pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.delete-activity:hover {
+    background-color: darkred;
+}
+
+
 
 #pieDePagina {
     align-items: center;

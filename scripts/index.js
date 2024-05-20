@@ -26,16 +26,11 @@ getActivities() {
 
 removeActivity(id) {
     this.activities = this.activities.filter((activity) => activity.id !== id);
- }
+    }
 };
 
 const repository = new Repository();
 
-// repositorio.addActivity(
-//     "bailar",
-//     "mover el bote con los pasos prohibidos",
-//     "esta es la imagen"
-// );
 
 repositorio.getActivities();
 
@@ -82,7 +77,7 @@ const addActivityDOM = () => {
     const imgURL = document.getElementById("imgUrl").value;
 
     if (!title || !description || !imgURL) {
-        alert(" Te faltan datos");
+        alert("Por favor completa los campos");
         return;
     }
 
@@ -91,11 +86,9 @@ const addActivityDOM = () => {
     render();
 };
 
-// function addActivity(title, description, imgURL) {
-//     const id = Date.now(); // Generar un ID único
-//     repository.addActivity(id, title, description, imgURL);
-//     displayActivities(); // Actualizar la visualización de las actividades
-// }
-    
-    
+function addActivity(title, description, imgURL) {
+    const id = Date.now();
+    repository.addActivity(id, title, description, imgURL);
+    displayActivities(); 
+}
 

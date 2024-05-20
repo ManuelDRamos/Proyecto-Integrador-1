@@ -27,13 +27,13 @@
             </div>
         </div>
         <div class="activitss">
-            <h2> Agregar Actividades </h2>
+            <h2> Mis Actividades </h2>
             <input type="text" id="title" class="large" placeholder="nombre de la actividad">
             <input type="text" id="description" class="medium" placeholder="descripcion de la actividad">
             <input type="text" id="imgURL" class="small" placeholder="link de la imagen">
-            <button id="guardarActividad"> Guardar Actividad </button>
+            <button id="guardarActividad"> Agregar Actividad </button>
         </div>
-        <div id="activitiesDisplay"></div> <!-- Contenedor para mostrar actividades -->
+        <div id="activitiesDisplay"></div>
     </main>
     <footer id="pieDePagina">
         <h2> Este es mi Perfil Manuel Ramos </h2>
@@ -47,14 +47,24 @@
         const newActivity = document.createElement("div");
         newActivity.classList.add("activity-details");
         newActivity.innerHTML = `<img src="${imgUrl}" alt="${title}" style="width: 100px;">
-        <p><strong>${title}</strong>: ${description}</p>`;
+        <p><strong>${title}</strong>: ${description}</p>
+        <button class="delete-activity">Eliminar</button>`;
+
+        newActivity.querySelector(".delete-activity").addEventListener("click", function() {
+            newActivity.remove();
+            if (activitiesDisplay.children.length === 0) {
+                activitiesDisplay.style.display = "none";
+            }
+        });
+
+
         activitiesDisplay.appendChild(newActivity);
 
-        // Verificar si el contenedor de actividades está vacío
+        
         if (activitiesDisplay.children.length === 0) {
-            activitiesDisplay.style.display = "none"; // Ocultar el contenedor
+            activitiesDisplay.style.display = "none"; 
         } else {
-            activitiesDisplay.style.display = "block"; // Mostrar el contenedor
+            activitiesDisplay.style.display = "flex";
         }
     }
 
@@ -62,6 +72,11 @@
         const title = document.getElementById("title").value;
         const description = document.getElementById("description").value;
         const imgURL = document.getElementById("imgURL").value;
+
+        if (!title || !description || !imgURL) {
+        alert("Por favor completa los campos");
+        return;
+        }
 
         addActivity(title, description, imgURL);
     }
