@@ -29,6 +29,51 @@ removeActivity(id) {
     }
 };
 
+document.addEventListener("DOMContentLoaded", function() {
+    const activitiesDisplay = document.getElementById("activitiesDisplay");
+
+    function addActivity(title, description, imgUrl) {
+        const newActivity = document.createElement("div");
+        newActivity.classList.add("activity-details");
+        newActivity.innerHTML = `<img src="${imgUrl}" alt="${title}" style="width: 100px;">
+        <p><strong>${title}</strong>: ${description}</p>
+        <button class="delete-activity">Eliminar</button>`;
+
+        newActivity.querySelector(".delete-activity").addEventListener("click", function() {
+            newActivity.remove();
+            if (activitiesDisplay.children.length === 0) {
+                activitiesDisplay.style.display = "none";
+            }
+        });
+
+
+        activitiesDisplay.appendChild(newActivity);
+
+        
+        if (activitiesDisplay.children.length === 0) {
+            activitiesDisplay.style.display = "none"; 
+        } else {
+            activitiesDisplay.style.display = "flex";
+        }
+    }
+
+    function guardarActividad() {
+        const title = document.getElementById("title").value;
+        const description = document.getElementById("description").value;
+        const imgURL = document.getElementById("imgURL").value;
+
+        if (!title || !description || !imgURL) {
+        alert("Por favor completa los campos");
+        return;
+        }
+
+        addActivity(title, description, imgURL);
+    }
+
+    document.getElementById("guardarActividad").addEventListener("click", guardarActividad);
+});
+
+
 const repository = new Repository();
 
 
@@ -90,5 +135,5 @@ function addActivity(title, description, imgURL) {
     const id = Date.now();
     repository.addActivity(id, title, description, imgURL);
     displayActivities(); 
-}
+};
 
