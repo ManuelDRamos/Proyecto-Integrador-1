@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const repository = new Repository();
 
 
-repositorio.getActivities();
+repository.getActivities();
 
 const button = document.getElementById("addActivity");
 
@@ -85,7 +85,7 @@ const render = () => {
     const container = document.getElementById("activities-container");
     container.innerHTML = "";
 
-    const activities = repositorio.getActivities();
+    const activities = repository.getActivities();
 
     const htmlActivities = activities.map((activity) => {
         const card = document.createElement("div");
